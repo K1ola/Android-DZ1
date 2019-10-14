@@ -5,14 +5,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <GridView
-        android:id="@+id/gvMain"
-        android:layout_width="match_parent"
-        android:layout_height="613dp"></GridView>
-
     <Button
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
         android:text="@string/button" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvAnimals"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </LinearLayout>

@@ -1,46 +1,38 @@
 package com.example.myapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.GridView;
 
-public class MainActivity extends AppCompatActivity {
-
+public class MainActivity extends Activity {
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager layoutManager;
     Integer[] data = new Integer[100];
 
-
-    GridView gvMain;
-    ArrayAdapter<Integer> adapter;
-
-
-    /** Called when the activity is first created. */
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        recyclerView = (RecyclerView) findViewById(R.id.rvAnimals);
+
+        // use this setting to improve performance if you know that changes
+        // in content do not change the layout size of the RecyclerView
+        recyclerView.setHasFixedSize(true);
+
+        // use a linear layout manager
+        layoutManager = new GridLayoutManager(this, 3);
+        recyclerView.setLayoutManager(layoutManager);
+
+        // specify an adapter (see also next example)
         for(int i=0; i<100; i++) {
             data[i] = i+1;
         }
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        adapter = new ArrayAdapter<Integer>(this, R.layout.item, R.id.tvText, data);
-        gvMain = (GridView) findViewById(R.id.gvMain);
-        gvMain.setAdapter(adapter);
-        adjustGridView();
+        mAdapter = new MyAdapter(data);
+        recyclerView.setAdapter(mAdapter);
     }
-
-
-    private void adjustGridView() {
-        gvMain.setNumColumns(GridView.AUTO_FIT);
-        gvMain.setColumnWidth(100);
-        gvMain.setVerticalSpacing(5);
-        gvMain.setHorizontalSpacing(5);
-        gvMain.setStretchMode(GridView.STRETCH_COLUMN_WIDTH);
-    }
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
-//    }
+    // ...
 }
