@@ -44,7 +44,7 @@ public class ListFragment extends Fragment implements ItemAdapter.OnNumberClickL
 
         recyclerView.setLayoutManager(new GridLayoutManager(view.getContext(), columnsNumber));
 
-        itemAdapter = new ItemAdapter(countNum, this);
+        itemAdapter = new ItemAdapter(countNum, this, view.getContext());
         recyclerView.setAdapter(itemAdapter);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 

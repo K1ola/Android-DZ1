@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,12 +17,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder> {
+    private Context context;
     private OnNumberClickListener listener;
     private int numCount;
 
-    public ItemAdapter(int _numCount, OnNumberClickListener _listener) {
+    private int lastPosition = -1;
+
+    public ItemAdapter(int _numCount, OnNumberClickListener _listener, Context _context) {
         numCount = _numCount;
         listener = _listener;
+        context = _context;
     }
 
     public static class ItemViewHolder extends RecyclerView.ViewHolder {
@@ -55,6 +60,21 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         holder.number = position;
         holder.button.setText(String.valueOf(position));
         holder.button.setTextColor(getColor(position));
+        setAnimation(holder.itemView, position);
+    }
+
+    /**
+     * Here is the key method to apply the animation
+     */
+    private void setAnimation(View viewToAnimate, int position)
+    {
+        // If the bound view wasn't previously displayed on screen, it's animated
+        if (position > lastPosition)
+        {
+            Animation animation = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
+            viewToAnimate.startAnimation(animation);
+            lastPosition = position;
+        }
     }
 
     @Override
