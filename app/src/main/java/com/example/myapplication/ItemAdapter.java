@@ -9,7 +9,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
-import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,14 +16,14 @@ import java.util.ArrayList;
 
 
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder> {
-    private Context context;
-    private OnNumberClickListener listener;
-    private ArrayList<Integer> numCount;
+    private final Context context;
+    private final OnNumberClickListener listener;
+    private ArrayList<Integer> numArray;
 
     private int lastPosition = -1;
 
-    public ItemAdapter(ArrayList<Integer> _numCount, OnNumberClickListener _listener, Context _context) {
-        numCount = _numCount;
+    public ItemAdapter(ArrayList<Integer> _numArray, final OnNumberClickListener _listener, final Context _context) {
+        numArray = _numArray;
         listener = _listener;
         context = _context;
     }
@@ -32,7 +31,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     public static class ItemViewHolder extends RecyclerView.ViewHolder {
         private Button button;
         private Integer number;
-        public ItemViewHolder(View itemView, final OnNumberClickListener _listener) {
+        ItemViewHolder(View itemView, final OnNumberClickListener _listener) {
             super(itemView);
             button = itemView.findViewById(R.id.numButton);
             button.setOnClickListener(new View.OnClickListener() {
@@ -45,19 +44,19 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     }
 
 
+    @NonNull
     @Override
     public ItemAdapter.ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // create a new view
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_number, parent, false);
 
-        ItemViewHolder vh = new ItemViewHolder(v, listener);
-        return vh;
+        return new ItemViewHolder(v, listener);
     }
 
     @Override
     public void onBindViewHolder(ItemViewHolder holder, int position) {
-        holder.number = numCount.get(position);
+        holder.number = numArray.get(position);
         holder.button.setText(String.valueOf(holder.number));
         holder.button.setTextColor(getColor(holder.number));
         setAnimation(holder.itemView, position);
@@ -79,11 +78,11 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
     @Override
     public int getItemCount() {
-        return numCount.size();
+        return numArray.size();
     }
 
     public void SetItemCount(ArrayList<Integer> num) {
-        numCount = num;
+        numArray = num;
         notifyDataSetChanged();
     }
 
@@ -92,7 +91,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     }
 
     private static int getColor(int _number) {
-        int result = _number % 2 == 0 ? Color.RED : Color.BLUE;
-        return result;
+        return _number % 2 == 0 ? Color.RED : Color.BLUE;
     }
 }
