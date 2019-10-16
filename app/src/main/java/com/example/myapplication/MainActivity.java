@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements ItemAdapter.OnNum
     }
 
     @Override
-    public void onNumberClick(int number, @ColorInt int color) {
+    public void onNumberClick(int number, int color) {
         itemFragment.setNumber(number, color);
 
         if (getSupportFragmentManager().findFragmentByTag("ItemFragment") != null) {

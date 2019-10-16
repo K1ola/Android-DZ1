@@ -1,13 +1,10 @@
 package com.example.myapplication;
 
-import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
 import androidx.annotation.ColorInt;
@@ -16,12 +13,20 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+
 public class ListFragment extends Fragment implements ItemAdapter.OnNumberClickListener {
     private Button button;
     private RecyclerView recyclerView;
     private ItemAdapter itemAdapter;
 
-    private int countNum = 100;
+    private ArrayList<Integer> data = new ArrayList<Integer>();
+
+    public ListFragment() {
+        for (int i = 0; i < 100; i++) {
+            data.add(i+1);
+        }
+    }
 
 
     @Override
@@ -34,17 +39,17 @@ public class ListFragment extends Fragment implements ItemAdapter.OnNumberClickL
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         if (savedInstanceState != null) {
-            countNum = savedInstanceState.getInt("count_number");
+            data = savedInstanceState.getIntegerArrayList("data_array");
         }
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
 
         //TODO
         int orientation = view.getContext().getResources().getConfiguration().orientation;
-        int columnsNumber = orientation == Configuration.ORIENTATION_LANDSCAPE ? 4 : 3;
+        final int columnsNumber = orientation == Configuration.ORIENTATION_LANDSCAPE ? 4 : 3;
 
         recyclerView.setLayoutManager(new GridLayoutManager(view.getContext(), columnsNumber));
 
-        itemAdapter = new ItemAdapter(countNum, this, view.getContext());
+        itemAdapter = new ItemAdapter(data, this, view.getContext());
         recyclerView.setAdapter(itemAdapter);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
@@ -52,14 +57,14 @@ public class ListFragment extends Fragment implements ItemAdapter.OnNumberClickL
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                countNum = itemAdapter.getItemCount() + 1;
-                itemAdapter.SetItemCount(countNum);
+                data.add(itemAdapter.getItemCount() + 1);
+                itemAdapter.SetItemCount(data);
             }
         });
     }
 
     @Override
-    public void onNumberClick(int number, @ColorInt int color) {
+    public void onNumberClick(int number, int color) {
         if (getActivity() == null || !(getActivity() instanceof ItemAdapter.OnNumberClickListener)) {
             return;
         }
@@ -73,7 +78,7 @@ public class ListFragment extends Fragment implements ItemAdapter.OnNumberClickL
     @Override
     public void onSaveInstanceState(Bundle state) {
         super.onSaveInstanceState(state);
-        state.putInt("count_number", countNum);
+        state.putIntegerArrayList("data_array", data);
     }
 
 }

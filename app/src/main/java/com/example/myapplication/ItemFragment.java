@@ -13,10 +13,9 @@ import androidx.fragment.app.Fragment;
 public class ItemFragment extends Fragment {
     private int number = 0;
     private int color;
-    @Nullable
     private TextView numView;
 
-    public void setNumber(int _number, @ColorInt int _color) {
+    public void setNumber(int _number, int _color) {
         Bundle bundle = new Bundle();
         bundle.putInt("number", _number);
         bundle.putInt("color", _color);
