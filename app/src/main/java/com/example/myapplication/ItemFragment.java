@@ -25,7 +25,7 @@ public class ItemFragment extends Fragment {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(@NonNull Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         Bundle bundle = getArguments();
@@ -37,14 +37,15 @@ public class ItemFragment extends Fragment {
         color = bundle.getInt(key_color);
     }
 
+    @NonNull
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @NonNull ViewGroup container,
+                             @NonNull Bundle savedInstanceState) {
         return inflater.inflate(R.layout.single_item_fragment, container, false);
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @NonNull Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
         TextView numView = view.findViewById(R.id.numberView);

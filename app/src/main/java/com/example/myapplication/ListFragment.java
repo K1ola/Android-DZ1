@@ -29,16 +29,16 @@ public class ListFragment extends Fragment implements ItemAdapter.OnNumberClickL
         }
     }
 
-
+    @NonNull
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                         Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @NonNull ViewGroup container,
+                             @NonNull Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         return inflater.inflate(R.layout.list_fragment, container, false);
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @NonNull Bundle savedInstanceState) {
         if (savedInstanceState != null) {
             data = savedInstanceState.getIntegerArrayList(key_data);
         }

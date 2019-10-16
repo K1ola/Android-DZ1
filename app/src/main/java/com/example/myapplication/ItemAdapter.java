@@ -29,9 +29,9 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     }
 
     public static class ItemViewHolder extends RecyclerView.ViewHolder {
-        private Button button;
+        private final Button button;
         private Integer number;
-        ItemViewHolder(View itemView, final OnNumberClickListener _listener) {
+        ItemViewHolder(@NonNull View itemView, final OnNumberClickListener _listener) {
             super(itemView);
             button = itemView.findViewById(R.id.numButton);
             button.setOnClickListener(new View.OnClickListener() {
@@ -46,7 +46,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
     @NonNull
     @Override
-    public ItemAdapter.ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ItemAdapter.ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // create a new view
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_number, parent, false);
@@ -65,7 +65,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     /**
      * Here is the key method to apply the animation
      */
-    private void setAnimation(View viewToAnimate, int position)
+    private void setAnimation(@NonNull View viewToAnimate, int position)
     {
         // If the bound view wasn't previously displayed on screen, it's animated
         if (position > lastPosition)
