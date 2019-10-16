@@ -18,12 +18,12 @@ import java.util.ArrayList;
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder> {
     private final Context context;
     private final OnNumberClickListener listener;
-    private ArrayList<Integer> numArray;
+    private int numCount = 99;
 
     private int lastPosition = -1;
 
-    public ItemAdapter(ArrayList<Integer> _numArray, final OnNumberClickListener _listener, final Context _context) {
-        numArray = _numArray;
+    public ItemAdapter(int _numCount, final OnNumberClickListener _listener, final Context _context) {
+        numCount = _numCount;
         listener = _listener;
         context = _context;
     }
@@ -56,7 +56,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
     @Override
     public void onBindViewHolder(ItemViewHolder holder, int position) {
-        holder.number = numArray.get(position);
+        holder.number = position + 1;
         holder.button.setText(String.valueOf(holder.number));
         holder.button.setTextColor(getColor(holder.number));
         setAnimation(holder.itemView, position);
@@ -78,11 +78,11 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
     @Override
     public int getItemCount() {
-        return numArray.size();
+        return numCount;
     }
 
-    public void SetItemCount(ArrayList<Integer> num) {
-        numArray = num;
+    public void SetItemCount(int _numCount) {
+        numCount = _numCount;
         notifyDataSetChanged();
     }
 

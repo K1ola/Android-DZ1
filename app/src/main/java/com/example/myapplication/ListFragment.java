@@ -29,7 +29,7 @@ public class ListFragment extends Fragment implements ItemAdapter.OnNumberClickL
 
     private ItemAdapter itemAdapter;
 
-    private ArrayList<Integer> data = new ArrayList<>();
+    private int data = 100;
 
     //////////////////////////////////
     class DBHelper extends SQLiteOpenHelper {
@@ -57,11 +57,11 @@ public class ListFragment extends Fragment implements ItemAdapter.OnNumberClickL
 
     DBHelper dbHelper;
 
-    public ListFragment() {
-        for (int i = 0; i < 100; i++) {
-            data.add(i+1);
-        }
-    }
+//    public ListFragment() {
+//        for (int i = 0; i < 100; i++) {
+//            data.add(i+1);
+//        }
+//    }
 
     @NonNull
     @Override
@@ -75,11 +75,11 @@ public class ListFragment extends Fragment implements ItemAdapter.OnNumberClickL
     public void onViewCreated(@NonNull View view, @NonNull Bundle savedInstanceState) {
 
         if (savedInstanceState != null) {
-            data = savedInstanceState.getIntegerArrayList(key_data);
+            data = savedInstanceState.getInt(key_data);
         }
 
         dbHelper = new DBHelper(view.getContext(), 1);
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        final SQLiteDatabase db = dbHelper.getWritableDatabase();
 
         Cursor c = db.query("data", null, null, null, null, null, null);
         if (c.moveToFirst()) {
@@ -95,7 +95,7 @@ public class ListFragment extends Fragment implements ItemAdapter.OnNumberClickL
             } while (c.moveToNext());
 
 
-            data.add(lastNum);
+            data = lastNum;
         }
 
             RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
@@ -113,8 +113,14 @@ public class ListFragment extends Fragment implements ItemAdapter.OnNumberClickL
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    data.add(itemAdapter.getItemCount() + 1);
+                    data = itemAdapter.getItemCount() + 1;
                     itemAdapter.SetItemCount(data);
+
+                    ContentValues cv = new ContentValues();
+                    cv.put("count", data);
+
+                    // вставляем запись и получаем ее ID
+                    db.insert("data", null, cv);
                 }
             });
 
@@ -134,15 +140,21 @@ public class ListFragment extends Fragment implements ItemAdapter.OnNumberClickL
         @Override
         public void onSaveInstanceState (@NonNull Bundle state){
             super.onSaveInstanceState(state);
-            state.putIntegerArrayList(key_data, data);
+            state.putInt(key_data, data);
 
 
             ContentValues cv = new ContentValues();
-            cv.put("count", data.size());
+            cv.put("count", data);
 
             SQLiteDatabase db = dbHelper.getWritableDatabase();
             // вставляем запись и получаем ее ID
             db.insert("data", null, cv);
+        }
+
+        @Override
+        public void onStop() {
+            super.onStop();
+            dbHelper.close();
         }
     }
 

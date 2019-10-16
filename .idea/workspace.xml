@@ -9,6 +9,9 @@
       <config />
     </shared>
   </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="de53c8f5-3388-4513-85f2-b02cc4d9aedd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
@@ -18,6 +21,7 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/ItemAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/ItemAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/ListFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/ListFragment.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,14 +42,14 @@
     </system>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.34726688">
+    <splitter split-orientation="horizontal" split-proportion="0.37215033">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/MainActivity.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="419">
-                  <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+                <state relative-caret-position="165">
+                  <caret line="11" selection-start-line="11" selection-end-line="11" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -56,8 +60,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/ItemAdapter.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1064">
-                  <caret line="89" column="13" selection-start-line="89" selection-start-column="13" selection-end-line="89" selection-end-column="13" />
+                <state relative-caret-position="300">
+                  <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="e#1277#1480#0" expanded="true" />
@@ -76,7 +80,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/ItemFragment.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="353">
+                <state relative-caret-position="208">
                   <caret line="39" column="12" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
                   <folding>
                     <element signature="imports" expanded="true" />
@@ -85,29 +89,15 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/build/generated/ap_generated_sources/debug/out/com/example/myapplication/ListFragmentDataDao_Impl.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="519">
-                  <caret line="40" column="5" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
-                  <folding>
-                    <element signature="e#254#301#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/ListFragment.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="389">
-                  <caret line="78" selection-start-line="78" selection-end-line="78" />
+                <state relative-caret-position="434">
+                  <caret line="127" lean-forward="true" selection-start-line="127" selection-end-line="127" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="e#1359#1360#0" expanded="true" />
                     <element signature="e#1407#1408#0" expanded="true" />
-                    <element signature="e#4132#4378#0" expanded="true" />
-                    <element signature="e#4377#4378#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -153,8 +143,8 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_number.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/anim/alpha.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/ItemFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/ItemAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/ItemAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/ListFragment.java" />
       </list>
     </option>
@@ -446,9 +436,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.13945766" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.10182623" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" />
@@ -458,11 +449,11 @@
       <window_info id="Capture Tool" order="8" />
       <window_info anchor="bottom" id="Find" order="0" weight="0.32937366" />
       <window_info anchor="bottom" id="Run" order="1" weight="0.32937366" />
-      <window_info anchor="bottom" id="Logcat" order="2" />
+      <window_info active="true" anchor="bottom" id="Logcat" order="2" sideWeight="0.4997233" visible="true" weight="0.32937366" />
       <window_info anchor="bottom" id="TODO" order="3" />
-      <window_info active="true" anchor="bottom" id="Debug" order="4" sideWeight="0.6945213" visible="true" weight="0.36285096" />
-      <window_info anchor="bottom" id="Terminal" order="5" sideWeight="0.4997233" weight="0.32829374" />
-      <window_info anchor="bottom" id="Event Log" order="6" sideWeight="0.3054787" side_tool="true" visible="true" weight="0.36285096" />
+      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.6923077" weight="0.36285096" />
+      <window_info anchor="bottom" id="Terminal" order="5" sideWeight="0.4991699" weight="0.32829374" />
+      <window_info anchor="bottom" id="Event Log" order="6" sideWeight="0.5002767" side_tool="true" visible="true" weight="0.32937366" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32937366" />
       <window_info anchor="bottom" id="Build" order="8" sideWeight="0.4997233" weight="0.2062635" />
       <window_info anchor="bottom" id="Android Profiler" order="9" weight="0.32937366" />
@@ -484,18 +475,6 @@
           <line>24</line>
           <properties class="com.example.myapplication.ItemAdapter" method="&lt;init&gt;" />
           <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/ListFragment.java</url>
-          <line>87</line>
-          <properties />
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/ListFragment.java</url>
-          <line>76</line>
-          <properties />
-          <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -630,9 +609,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/build/generated/ap_generated_sources/debug/out/com/example/myapplication/ListFragment_AppDatabase_Impl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build/generated/ap_generated_sources/debug/out/com/example/myapplication/ListFragmentDataDao_Impl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="519">
+          <caret line="40" column="5" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
+          <folding>
+            <element signature="e#254#301#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/ItemFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
+        <state relative-caret-position="208">
           <caret line="39" column="12" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -642,8 +638,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/ItemAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1064">
-          <caret line="89" column="13" selection-start-line="89" selection-start-column="13" selection-end-line="89" selection-end-column="13" />
+        <state relative-caret-position="300">
+          <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1277#1480#0" expanded="true" />
@@ -656,31 +652,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+        <state relative-caret-position="165">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build/generated/ap_generated_sources/debug/out/com/example/myapplication/ListFragment_AppDatabase_Impl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/ListFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="78" selection-start-line="78" selection-end-line="78" />
+        <state relative-caret-position="434">
+          <caret line="127" lean-forward="true" selection-start-line="127" selection-end-line="127" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1359#1360#0" expanded="true" />
             <element signature="e#1407#1408#0" expanded="true" />
-            <element signature="e#4132#4378#0" expanded="true" />
-            <element signature="e#4377#4378#0" expanded="true" />
           </folding>
         </state>
       </provider>
