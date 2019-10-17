@@ -26,10 +26,16 @@ public class ListFragment extends Fragment implements ItemAdapter.OnNumberClickL
 
     private List<Integer> data;
 
-    public ListFragment() {
-        data = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            data.add(i+1);
+    @Override
+    public void onCreate(@NonNull Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (savedInstanceState != null) {
+            data = savedInstanceState.getIntegerArrayList(key_data);
+        } else {
+            data = new ArrayList<>();
+            for (int i = 0; i < 100; i++) {
+                data.add(i+1);
+            }
         }
     }
 
@@ -43,9 +49,6 @@ public class ListFragment extends Fragment implements ItemAdapter.OnNumberClickL
 
     @Override
     public void onViewCreated(@NonNull View view, @NonNull Bundle savedInstanceState) {
-        if (savedInstanceState != null) {
-            data = savedInstanceState.getIntegerArrayList(key_data);
-        }
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
 
         int orientation = view.getContext().getResources().getConfiguration().orientation;
