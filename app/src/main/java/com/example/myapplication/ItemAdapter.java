@@ -23,22 +23,22 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
     private int lastPosition = -1;
 
-    public ItemAdapter(List<Integer> _numArray, final OnNumberClickListener _listener, final Context _context) {
-        numArray = _numArray;
-        listener = _listener;
-        context = _context;
+    public ItemAdapter(List<Integer> numArray, final OnNumberClickListener listener, final Context context) {
+        this.numArray = numArray;
+        this.listener = listener;
+        this.context = context;
     }
 
     public static class ItemViewHolder extends RecyclerView.ViewHolder {
         private final Button button;
         private Integer number;
-        ItemViewHolder(@NonNull View itemView, final OnNumberClickListener _listener) {
+        ItemViewHolder(@NonNull View itemView, final OnNumberClickListener listener) {
             super(itemView);
             button = itemView.findViewById(R.id.numButton);
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    _listener.onNumberClick(number, getColor(number));
+                    listener.onNumberClick(number, getColor(number));
                 }
             });
         }
@@ -63,14 +63,12 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         setAnimation(holder.itemView, position);
     }
 
-    /**
-     * Here is the key method to apply the animation
-     */
-    private void setAnimation(@NonNull View viewToAnimate, int position)
-    {
+     /**
+      Method to apply the animation
+     **/
+    private void setAnimation(@NonNull View viewToAnimate, int position) {
         // If the bound view wasn't previously displayed on screen, it's animated
-        if (position > lastPosition)
-        {
+        if (position > lastPosition) {
             Animation animation = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
             viewToAnimate.startAnimation(animation);
             lastPosition = position;
@@ -91,7 +89,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         void onNumberClick(int number, int color);
     }
 
-    private static int getColor(int _number) {
-        return _number % 2 == 0 ? Color.RED : Color.BLUE;
+    private static int getColor(int number) {
+        return number % 2 == 0 ? Color.RED : Color.BLUE;
     }
 }

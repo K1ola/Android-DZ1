@@ -17,13 +17,6 @@ public class ItemFragment extends Fragment {
     private int number = 0;
     private int color;
 
-//    public void setNumber(int _number, int _color) {
-//        Bundle bundle = new Bundle();
-//        bundle.putInt(key_number, _number);
-//        bundle.putInt(key_color, _color);
-//        setArguments(bundle);
-//    }
-
     @Override
     public void onCreate(@NonNull Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
