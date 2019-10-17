@@ -19,6 +19,8 @@ import java.util.List;
 public class ListFragment extends Fragment implements ItemAdapter.OnNumberClickListener {
     public static final String TAG = "ListFragment";
     private final String key_data = "data_array";
+    private final int portrait_orientation = 3;
+    private final int landscape_orientation = 4;
 
     private ItemAdapter itemAdapter;
 
@@ -47,7 +49,7 @@ public class ListFragment extends Fragment implements ItemAdapter.OnNumberClickL
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
 
         int orientation = view.getContext().getResources().getConfiguration().orientation;
-        final int columnsNumber = orientation == Configuration.ORIENTATION_LANDSCAPE ? 4 : 3;
+        final int columnsNumber = orientation == Configuration.ORIENTATION_LANDSCAPE ? landscape_orientation : portrait_orientation;
 
         recyclerView.setLayoutManager(new GridLayoutManager(view.getContext(), columnsNumber));
 
