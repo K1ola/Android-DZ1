@@ -12,13 +12,10 @@ public class MainActivity extends AppCompatActivity implements ItemAdapter.OnNum
         setContentView(R.layout.activity_main);
 
         ListFragment listFragment = (ListFragment) getSupportFragmentManager().findFragmentByTag(ListFragment.TAG);
-        if (listFragment == null) {
-            listFragment = new ListFragment();
-        }
-
-        if (getSupportFragmentManager().findFragmentByTag(ListFragment.TAG) != null) {
+        if (listFragment != null) {
             return;
         }
+        listFragment = new ListFragment();
 
         getSupportFragmentManager()
                 .beginTransaction()
@@ -30,18 +27,15 @@ public class MainActivity extends AppCompatActivity implements ItemAdapter.OnNum
     public void onNumberClick(int number, int color) {
         ItemFragment itemFragment = (ItemFragment) getSupportFragmentManager().findFragmentByTag(ItemFragment.TAG);
 
-        if (itemFragment == null) {
-            itemFragment = new ItemFragment();
+        if (itemFragment != null) {
+            return;
         }
+        itemFragment = new ItemFragment();
 
         final Bundle bundle = new Bundle();
         bundle.putInt(ItemFragment.key_number, number);
         bundle.putInt(ItemFragment.key_color, color);
         itemFragment.setArguments(bundle);
-
-        if (getSupportFragmentManager().findFragmentByTag(ItemFragment.TAG) != null) {
-            return;
-        }
 
         getSupportFragmentManager()
                 .beginTransaction()
