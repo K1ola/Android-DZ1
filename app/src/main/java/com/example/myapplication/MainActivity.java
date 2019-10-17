@@ -16,7 +16,6 @@ public class MainActivity extends AppCompatActivity implements ItemAdapter.OnNum
             listFragment = new ListFragment();
         }
 
-        //TODO when null?
         if (getSupportFragmentManager().findFragmentByTag(ListFragment.TAG) != null) {
             return;
         }
@@ -29,8 +28,7 @@ public class MainActivity extends AppCompatActivity implements ItemAdapter.OnNum
 
     @Override
     public void onNumberClick(int number, int color) {
-        ItemFragment itemFragment;
-        itemFragment = (ItemFragment) getSupportFragmentManager().findFragmentByTag(ItemFragment.TAG);
+        ItemFragment itemFragment = (ItemFragment) getSupportFragmentManager().findFragmentByTag(ItemFragment.TAG);
 
         if (itemFragment == null) {
             itemFragment = new ItemFragment();
@@ -41,7 +39,6 @@ public class MainActivity extends AppCompatActivity implements ItemAdapter.OnNum
         bundle.putInt(ItemFragment.key_color, color);
         itemFragment.setArguments(bundle);
 
-        //TODO when null?
         if (getSupportFragmentManager().findFragmentByTag(ItemFragment.TAG) != null) {
             return;
         }
