@@ -22,9 +22,10 @@ public class ListFragment extends Fragment implements ItemAdapter.OnNumberClickL
 
     private ItemAdapter itemAdapter;
 
-    private List<Integer> data = new ArrayList<>();
+    private List<Integer> data;
 
     public ListFragment() {
+        data = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
             data.add(i+1);
         }
