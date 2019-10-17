@@ -11,18 +11,18 @@ import androidx.fragment.app.Fragment;
 
 public class ItemFragment extends Fragment {
     public static final String TAG = "ItemFragment";
-    private final String key_number = "number";
-    private final String key_color = "color";
+    public static final String key_number = "number";
+    public static final String key_color = "color";
 
     private int number = 0;
     private int color;
 
-    public void setNumber(int _number, int _color) {
-        Bundle bundle = new Bundle();
-        bundle.putInt(key_number, _number);
-        bundle.putInt(key_color, _color);
-        setArguments(bundle);
-    }
+//    public void setNumber(int _number, int _color) {
+//        Bundle bundle = new Bundle();
+//        bundle.putInt(key_number, _number);
+//        bundle.putInt(key_color, _color);
+//        setArguments(bundle);
+//    }
 
     @Override
     public void onCreate(@NonNull Bundle savedInstanceState) {

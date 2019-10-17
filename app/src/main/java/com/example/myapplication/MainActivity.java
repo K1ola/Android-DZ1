@@ -32,7 +32,11 @@ public class MainActivity extends AppCompatActivity implements ItemAdapter.OnNum
             itemFragment = new ItemFragment();
         }
 
-        itemFragment.setNumber(number, color);
+        final Bundle bundle = new Bundle();
+        bundle.putInt(ItemFragment.key_number, number);
+        bundle.putInt(ItemFragment.key_color, color);
+        itemFragment.setArguments(bundle);
+
 
         if (getSupportFragmentManager().findFragmentByTag(ItemFragment.TAG) != null) {
             return;
