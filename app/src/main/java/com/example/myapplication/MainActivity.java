@@ -21,7 +21,10 @@ public class MainActivity extends AppCompatActivity implements ItemAdapter.OnNum
             return;
         }
 
-        getSupportFragmentManager().beginTransaction().add(R.id.container, listFragment, ListFragment.TAG).commit();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.container, listFragment, ListFragment.TAG)
+                .commit();
     }
 
     @Override
@@ -43,6 +46,10 @@ public class MainActivity extends AppCompatActivity implements ItemAdapter.OnNum
             return;
         }
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, itemFragment, ItemFragment.TAG).addToBackStack(ItemFragment.TAG).commit();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.container, itemFragment, ItemFragment.TAG)
+                .addToBackStack(ItemFragment.TAG)
+                .commit();
     }
 }
