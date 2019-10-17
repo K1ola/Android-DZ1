@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity implements ItemAdapter.OnNum
             listFragment = new ListFragment();
         }
 
+        //TODO when null?
         if (getSupportFragmentManager().findFragmentByTag(ListFragment.TAG) != null) {
             return;
         }
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements ItemAdapter.OnNum
         bundle.putInt(ItemFragment.key_color, color);
         itemFragment.setArguments(bundle);
 
-
+        //TODO when null?
         if (getSupportFragmentManager().findFragmentByTag(ItemFragment.TAG) != null) {
             return;
         }

@@ -13,16 +13,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder> {
     private final Context context;
     private final OnNumberClickListener listener;
-    private ArrayList<Integer> numArray;
+    private List<Integer> numArray;
 
     private int lastPosition = -1;
 
-    public ItemAdapter(ArrayList<Integer> _numArray, final OnNumberClickListener _listener, final Context _context) {
+    public ItemAdapter(List<Integer> _numArray, final OnNumberClickListener _listener, final Context _context) {
         numArray = _numArray;
         listener = _listener;
         context = _context;
@@ -81,7 +82,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         return numArray.size();
     }
 
-    public void SetItemCount(ArrayList<Integer> num) {
+    public void SetItemCount(List<Integer> num) {
         numArray = num;
         notifyDataSetChanged();
     }

@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ListFragment extends Fragment implements ItemAdapter.OnNumberClickListener {
     public static final String TAG = "ListFragment";
@@ -21,7 +22,7 @@ public class ListFragment extends Fragment implements ItemAdapter.OnNumberClickL
 
     private ItemAdapter itemAdapter;
 
-    private ArrayList<Integer> data = new ArrayList<>();
+    private List<Integer> data = new ArrayList<>();
 
     public ListFragment() {
         for (int i = 0; i < 100; i++) {
@@ -75,7 +76,7 @@ public class ListFragment extends Fragment implements ItemAdapter.OnNumberClickL
     @Override
     public void onSaveInstanceState(@NonNull Bundle state) {
         super.onSaveInstanceState(state);
-        state.putIntegerArrayList(key_data, data);
+        state.putIntegerArrayList(key_data, (ArrayList<Integer>)data);
     }
 
 }
