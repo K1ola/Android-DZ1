@@ -25,12 +25,7 @@ public class MainActivity extends AppCompatActivity implements ItemAdapter.OnNum
 
     @Override
     public void onNumberClick(int number, int color) {
-        ItemFragment itemFragment = (ItemFragment) getSupportFragmentManager().findFragmentByTag(ItemFragment.TAG);
-
-        if (itemFragment != null) {
-            return;
-        }
-        itemFragment = new ItemFragment();
+        ItemFragment itemFragment = new ItemFragment();
 
         final Bundle bundle = new Bundle();
         bundle.putInt(ItemFragment.key_number, number);

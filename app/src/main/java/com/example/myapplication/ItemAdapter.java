@@ -61,9 +61,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         setAnimation(holder.itemView, position);
     }
 
-     /**
-      Method to apply the animation
-     **/
     private void setAnimation(@NonNull View viewToAnimate, int position) {
         // If the bound view wasn't previously displayed on screen, it's animated
         if (position > lastPosition) {
