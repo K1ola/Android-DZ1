@@ -11,8 +11,8 @@ import androidx.fragment.app.Fragment;
 
 public class ItemFragment extends Fragment {
     public static final String TAG = "ItemFragment";
-    public static final String key_number = "number";
-    public static final String key_color = "color";
+    public static final String KEY_NUMBER = "number";
+    public static final String KEY_COLOR = "color";
 
     private int number = 0;
     private int color;
@@ -26,8 +26,8 @@ public class ItemFragment extends Fragment {
             return;
         }
 
-        number = bundle.getInt(key_number);
-        color = bundle.getInt(key_color);
+        number = bundle.getInt(KEY_NUMBER);
+        color = bundle.getInt(KEY_COLOR);
     }
 
     @NonNull

@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity implements ItemAdapter.OnNum
         ItemFragment itemFragment = new ItemFragment();
 
         final Bundle bundle = new Bundle();
-        bundle.putInt(ItemFragment.key_number, number);
-        bundle.putInt(ItemFragment.key_color, color);
+        bundle.putInt(ItemFragment.KEY_NUMBER, number);
+        bundle.putInt(ItemFragment.KEY_COLOR, color);
         itemFragment.setArguments(bundle);
 
         getSupportFragmentManager()

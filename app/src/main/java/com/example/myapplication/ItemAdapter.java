@@ -75,7 +75,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         return numArray.size();
     }
 
-    public void SetItemCount(List<Integer> num) {
+    public void setItemCount(List<Integer> num) {
         numArray = num;
         notifyDataSetChanged();
     }

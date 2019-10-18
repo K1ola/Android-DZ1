@@ -65,7 +65,7 @@ public class ListFragment extends Fragment implements ItemAdapter.OnNumberClickL
             @Override
             public void onClick(View v) {
                 data.add(itemAdapter.getItemCount() + 1);
-                itemAdapter.SetItemCount(data);
+                itemAdapter.setItemCount(data);
             }
         });
     }
