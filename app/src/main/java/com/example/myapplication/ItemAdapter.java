@@ -22,13 +22,13 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
     private int lastPosition = -1;
 
-    public ItemAdapter(List<Integer> numArray, final OnNumberClickListener listener, final Context context) {
+    ItemAdapter(List<Integer> numArray, final OnNumberClickListener listener, final Context context) {
         this.numArray = numArray;
         this.listener = listener;
         this.context = context;
     }
 
-    public static class ItemViewHolder extends RecyclerView.ViewHolder {
+    static class ItemViewHolder extends RecyclerView.ViewHolder {
         private final Button button;
         private Integer number;
         ItemViewHolder(@NonNull View itemView, final OnNumberClickListener listener) {
@@ -75,7 +75,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         return numArray.size();
     }
 
-    public void setItemCount(List<Integer> num) {
+    void setItemCount(List<Integer> num) {
         numArray = num;
         notifyDataSetChanged();
     }

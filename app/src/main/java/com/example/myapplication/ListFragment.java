@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -17,17 +18,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ListFragment extends Fragment implements ItemAdapter.OnNumberClickListener {
-    public static final String TAG = "ListFragment";
+    static final String TAG = "ListFragment";
     private final String key_data = "data_array";
-    private final int portrait_orientation = 3;
-    private final int landscape_orientation = 4;
 
     private ItemAdapter itemAdapter;
 
     private List<Integer> data;
 
     @Override
-    public void onCreate(@NonNull Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (savedInstanceState != null) {
             data = savedInstanceState.getIntegerArrayList(key_data);
@@ -41,17 +40,19 @@ public class ListFragment extends Fragment implements ItemAdapter.OnNumberClickL
 
     @NonNull
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @NonNull ViewGroup container,
-                             @NonNull Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         return inflater.inflate(R.layout.list_fragment, container, false);
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @NonNull Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
 
         int orientation = view.getContext().getResources().getConfiguration().orientation;
+        int portrait_orientation = 3;
+        int landscape_orientation = 4;
         final int columnsNumber = orientation == Configuration.ORIENTATION_LANDSCAPE ? landscape_orientation : portrait_orientation;
 
         recyclerView.setLayoutManager(new GridLayoutManager(view.getContext(), columnsNumber));

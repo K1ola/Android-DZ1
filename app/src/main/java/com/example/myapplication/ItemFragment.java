@@ -7,18 +7,19 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 public class ItemFragment extends Fragment {
-    public static final String TAG = "ItemFragment";
-    public static final String KEY_NUMBER = "number";
-    public static final String KEY_COLOR = "color";
+    static final String TAG = "ItemFragment";
+    static final String KEY_NUMBER = "number";
+    static final String KEY_COLOR = "color";
 
     private int number = 0;
     private int color;
 
     @Override
-    public void onCreate(@NonNull Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         Bundle bundle = getArguments();
@@ -32,13 +33,13 @@ public class ItemFragment extends Fragment {
 
     @NonNull
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @NonNull ViewGroup container,
-                             @NonNull Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.single_item_fragment, container, false);
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @NonNull Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
         TextView numView = view.findViewById(R.id.numberView);
