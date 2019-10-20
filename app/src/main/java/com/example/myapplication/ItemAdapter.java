@@ -5,8 +5,6 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
@@ -19,8 +17,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     private final Context context;
     private final OnNumberClickListener listener;
     private List<Integer> numArray;
-
-    private int lastPosition = -1;
 
     ItemAdapter(List<Integer> numArray, final OnNumberClickListener listener, final Context context) {
         this.numArray = numArray;
@@ -58,17 +54,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         holder.number = numArray.get(position);
         holder.button.setText(String.valueOf(holder.number));
         holder.button.setTextColor(getColor(holder.number));
-        setAnimation(holder.itemView, position);
     }
 
-    private void setAnimation(@NonNull View viewToAnimate, int position) {
-        // If the bound view wasn't previously displayed on screen, it's animated
-        if (position > lastPosition) {
-            Animation animation = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
-            viewToAnimate.startAnimation(animation);
-            lastPosition = position;
-        }
-    }
 
     @Override
     public int getItemCount() {
@@ -77,7 +64,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
     void setItemCount(List<Integer> num) {
         numArray = num;
-        notifyDataSetChanged();
+        notifyItemInserted(num.size());
     }
 
     public interface OnNumberClickListener {
